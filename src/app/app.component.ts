@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   author = 'Armando Londoño';
-  imageUrl: string;
+  imageUrl = 'https://api.adorable.io/avatars/400/@adorable.io.png';
   baseUrl = 'https://api.adorable.io/avatars/500/';
   urlSuffix = '@adorable.io.png';
 
@@ -17,12 +17,12 @@ export class AppComponent {
       this.generateRandomFace(), 1000
     );
   }
-  
+
   generateRandomFace() {
     this.imageUrl = `${this.baseUrl}${this.getRandomImageId()}${this.urlSuffix}`;
   }
 
   getRandomImageId(): string {
-    return Math.random().toString();
+    return `${Math.floor(Math.random() * (500 - 1 + 1)) + 1}`;
   }
 }
